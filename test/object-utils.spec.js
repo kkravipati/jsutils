@@ -42,6 +42,25 @@ describe('ObjectUtils jsutils library', () => {
         });
     });
 
+    describe('getValue', () => {
+        it('valid key', () => {
+            expect(ObjectUtils.getValue({h: 'test'}, 'h'))
+                .to.equal('test');
+        });
+        it('invalid key', () => {
+            expect(ObjectUtils.getValue({}, 'l'))
+                .to.equal(null);
+        });
+        it('invalid object', () => {
+            expect(ObjectUtils.getValue(undefined, 'l'))
+                .to.equal(null);
+        });
+        it('invalid object with default value', () => {
+            expect(ObjectUtils.getValue(undefined, 'l', 'q'))
+                .to.equal('q');
+        });
+    });
+
     describe('isPlainObjectArray', () => {
         it('valid object array', () => {
             expect(ObjectUtils.isPlainObjectArray([{h: 'test'}]))
@@ -50,6 +69,10 @@ describe('ObjectUtils jsutils library', () => {
         it('valid nested object array', () => {
             expect(ObjectUtils.isPlainObjectArray([{h: 'test'}, [{k: 'test'}]], true))
                 .to.be.true;
+        });
+        it('valid nested object array without recursive flag', () => {
+            expect(ObjectUtils.isPlainObjectArray([{h: 'test'}, [{k: 'test'}]]))
+                .to.be.false;
         });
         it('object', () => {
             expect(ObjectUtils.isPlainObjectArray({h: 'test'}))
@@ -97,10 +120,10 @@ describe('ObjectUtils jsutils library', () => {
         });
         it('2 objects, object arrays & recursive', () => {
             let toDict = {a: 'test', b: {c: 'test', e: [{g: 'test'}, {h: 'test'}]} };
-            let fromDict = {b: {c: 'test2', d: 'test', e: [{g: 'test2'}, {k: 'test2'}]}};
+            let fromDict = {b: {c: 'test2', d: 'test2', e: [{g: 'test2'}, {k: 'test2'}]}};
             ObjectUtils.merge(toDict, fromDict, true);
             expect(toDict)
-                .to.be.deep.equal({a: 'test', b: {c: 'test2', d: 'test', e: [{g: 'test2'}, {h: 'test', k: 'test2'}]}});
+                .to.be.deep.equal({a: 'test', b: {c: 'test2', d: 'test2', e: [{g: 'test2'}, {h: 'test', k: 'test2'}]}});
         });
         it('2 objects, object arrays & recursive & extendArray', () => {
             let toDict = {a: 'test', b: {c: 'test', e: [{g: 'test'}, {h: 'test'}]} };
@@ -138,5 +161,27 @@ describe('ObjectUtils jsutils library', () => {
             expect(toDict)
                 .to.be.deep.equal({a: 'test', b: {c: 'test', d: 'test', e: 'test'}});
         });
+        it('2 objects with complex object', () => {
+            let toDict = {a: '1', b: {c: '1', e: null}, f: [{g: '1'}] };
+            let fromDict = {b: {c: '2', d: '2', e: '2'}, f: [{g: '2'}] };
+            ObjectUtils.merge(toDict, fromDict);
+            expect(toDict)
+                .to.be.deep.equal({a: '1', b: {c: '2', d: '2', e: '2'}, f: [{g: '2'}]});
+        });
+        it('2 objects, recursive, non override, ignoreNull, extend array', () => {
+            let toDict = {a: '1', b: {c: '1', e: null}, f: [{g: '1'}] };
+            let fromDict = {b: {c: '2', d: '2', e: '2'}, f: [{g: '2'}] };
+            ObjectUtils.merge(toDict, fromDict, true, true, true, true);
+            expect(toDict)
+                .to.be.deep.equal({a: '1', b: {c: '1', d: '2', e: '2'}, f: [{g: '1'}, {g: '2'}]});
+        });
+        it('2 objects, recursive, non override, ignoreNull, extend array', () => {
+            let toDict = {a: '1', b: {c: '1', e: null}, f: [{g: '1'}] };
+            let fromDict = {b: {c: '2', d: '2', e: '2'}, f: [{g: '2'}] };
+            ObjectUtils.merge(toDict, fromDict, true, true, false, true);
+            expect(toDict)
+                .to.be.deep.equal({a: '1', b: {c: '1', d: '2', e: null}, f: [{g: '1'}, {g: '2'}]});
+        });
+
     });
 });

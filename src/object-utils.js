@@ -1,3 +1,8 @@
+/**
+ * Object related dev utilities
+ * @module ObjectUtils
+ */
+
 import LangUtils from 'lang-utils';
 import ArrayUtils from 'array-utils';
 
@@ -15,23 +20,65 @@ function getKeysFromProperties(obj) {
 }
 
 export default class ObjectUtils {
+    /**
+     * Create Keys array from the plain object.
+     *
+     * @param {Object} obj      Plain object to Inspect
+     * @return {Array}          Array with all keys of given object.
+     */
     static keys(obj) {
         return (LangUtils.isPlainObject(obj) && LangUtils.isFunction(Object.keys)) ?
             Object.keys(obj) : getKeysFromProperties(obj);
     }
 
+    /**
+     * Create Values array from the plain object.
+     *
+     * @param {Object} obj      Plain object to Inspect
+     * @return {Array}          Array with all values of given object.
+     */
     static values(obj) {
         return this.keys(obj).map(key => obj[key]);
     }
 
+    /**
+     * Verify given key is present in the object or not.
+     *
+     * @param {Object} obj      Plain object to Inspect.
+     * @param {String} key      Key value.
+     * @return {Boolean}        true if key is present otherwise false.
+     */
     static containsKey(obj, key) {
         return LangUtils.isPlainObject(obj) ? obj.hasOwnProperty(key) : false;
     }
 
+    /**
+     * Get value from the object for a given key, if key is not present return default value.
+     * @param {Object} obj                  Plain object to Inspect.
+     * @param {String} key                  key value.
+     * @param {*} [defaultValue = null]     Value to be return if key is not present in given Object.
+     * @return {*}                          Value for given key from the Object.
+     */
     static getValue(obj, key, defaultValue) {
         return this.containsKey(obj, key) ? obj[key] : (defaultValue === undefined) ? null : defaultValue;
     }
 
+    /**
+     * Verify given array contains all elements as plain objects or not.
+     *
+     * @param {Array} objArray                      Array to Inspect.
+     * @param {Boolean} [isRecursive=false]         Verify nested items as well.
+     * @return {Boolean}                            true if objArry is array of Objects, otherwise false.
+     *
+     * @example
+     *
+     * ObjectUtils.isPlainObjectArray([{h: 'h'}, [{k: 'k'}]]);
+     * // => false
+     *
+     * ObjectUtils.isPlainObjectArray([{h: 'h'}, [{k: 'k'}]], true);
+     * // => true
+     *
+     */
     static isPlainObjectArray(objArray, isRecursive) {
         if (!LangUtils.isArray(objArray)) {
             return false;
@@ -47,6 +94,34 @@ export default class ObjectUtils {
         return true;
     }
 
+    /**
+     * Merge one object into another.
+     *
+     * @param {Object} toDict                       Object on merge operation is going to perform.
+     * @param {Object} fromDict                     Object to be merged.
+     * @param {Boolean} [recursive=false]           Recursive merge or not.
+     * @param {Boolean} [notOverride=false]         Overide or not. by default override is true.
+     * @param {Boolean} [ignoreNull=false]          Consider null values & keys or not.
+     *                                              By default null values will be merged.
+     * @param {Boolean} [extendObjectArray=false]   Override / extend arrays.by defult override arrys is on.
+     *
+     * @example
+     *
+     * let toDict = {a: '1', b: {c: '1', e: null}, f: [{g: '1'}] };
+     * let fromDict = {b: {c: '2', d: '2', e: '2'}, f: [{g: '2'}] };
+     * ObjectUtils.merge(toDict, fromDict);
+     * // => toDict is updated as {a: '1', b: {c: '2', d: '2', e: '2'}, f: [{g: '2'}]}
+     *
+     * let toDict = {a: '1', b: {c: '1', e: null}, f: [{g: '1'}] };
+     * let fromDict = {b: {c: '2', d: '2', e: '2'}, f: [{g: '2'}] };
+     * ObjectUtils.merge(toDict, fromDict, true, true, true, true);
+     * // => toDict is updated as {a: '1', b: {c: '1', d: '2', e: '2'}, f: [{g: '1'}, {g: '2'}]}
+     *
+     * let toDict = {a: '1', b: {c: '1', e: null}, f: [{g: '1'}] };
+     * let fromDict = {b: {c: '2', d: '2', e: '2'}, f: [{g: '2'}] };
+     * ObjectUtils.merge(toDict, fromDict, true, true, false, true);
+     * // => toDict is updated as {a: '1', b: {c: '1', d: '2', e: null}, f: [{g: '1'}, {g: '2'}]}
+     */
     // TODO: support Symbols and Buffer
     static merge(toDict, fromDict, recursive, notOverride, ignoreNull, extendObjectArray) {
         function deepCopyFromDictAttrs(attrName, toDict, fromDict) {

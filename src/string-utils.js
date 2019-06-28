@@ -1,7 +1,24 @@
+/**
+ * String related dev utilities
+ * @module StringUtils
+ */
+
 import LangUtils from 'lang-utils';
 import ObjectUtils from 'object-utils';
 
 export default class StringUtils {
+
+    /**
+     * Creates new interpolated String with String template and  params data object.
+     * @param {String} str           String template to be interpolated.
+     * @param {Object} paramsObj     param data object.
+     * @return {String}              Interpolated String.
+     *
+     * @example
+     *
+     * StringUtils.interpolate('${a} ${b}', {a: 5, b: 3});
+     * // => '5 3'
+     */
     static interpolate(str, paramsObj) {
         if (!LangUtils.isString(str)) {
             return null;

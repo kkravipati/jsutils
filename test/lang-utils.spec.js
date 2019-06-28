@@ -788,6 +788,38 @@ describe('LangUtils tests', () => {
                 .to.deep.equal({a: 'a', b: {c: 'c', d: ['e', 'f']}, g: [{h: 'h'}, {k: 'k'}]});
         });
     });
+
+    describe('isEqual', () => {
+        it('dict compare', () => {
+            expect(LangUtils.isEqual({ 'a': 'b' }, { 'a': 'b' }))
+                .to.equal(true);
+        });
+        it('String check', () => {
+            expect(LangUtils.isEqual('a', 'a'))
+                .to.equal(true);
+        });
+        it('String with space', () => {
+            expect(LangUtils.isEqual('a', 'a '))
+                .to.equal(false);
+        });
+        it('String & number', () => {
+            expect(LangUtils.isEqual('1', 1))
+                .to.equal(false);
+        });
+        it('null check', () => {
+            expect(LangUtils.isEqual(null, null))
+                .to.equal(true);
+        });
+        it('undefined check', () => {
+            expect(LangUtils.isEqual(undefined, undefined))
+                .to.equal(true);
+        });
+        it('null & undefined', () => {
+            expect(LangUtils.isEqual(null, undefined))
+                .to.equal(false);
+        });
+    });
+
     describe('query', () => {
         it('object dot notation nested path', () => {
             expect(LangUtils.query({'a': {'b': 'c'}}, 'a.b'))
@@ -804,6 +836,32 @@ describe('LangUtils tests', () => {
         it('object array nested path array', () => {
             expect(LangUtils.query({'a': ['b', 'c']}, ['a', 1]))
                 .to.equal('c');
+        });
+        it('object array nested path array', () => {
+            expect(LangUtils.query(undefined, ['a', 1]))
+                .to.equal(null);
+        });
+        it('object array nested path array', () => {
+            expect(LangUtils.query(null, 'a'))
+                .to.equal(null);
+        });
+    });
+    describe('omitDeep', () => {
+        it('object with one key', () => {
+            expect(LangUtils.omitDeep({'a': {'b': 'c'}}, 'b'))
+                .to.deep.equal({'a': {} });
+        });
+        it('object with non existing key', () => {
+            expect(LangUtils.omitDeep({'a': {'b': 'c'}}, 'c'))
+                .to.deep.equal({'a': {'b': 'c'}});
+        });
+        it('object with non existing keys', () => {
+            expect(LangUtils.omitDeep({'a': {'b': 'c'}}, 'c', 'd', 'e'))
+                .to.deep.equal({'a': {'b': 'c'}});
+        });
+        it('object with  null && undefined keys', () => {
+            expect(LangUtils.omitDeep({'a': {'b': 'c'}}, undefined, null))
+                .to.deep.equal({'a': {'b': 'c'}});
         });
     });
 });
