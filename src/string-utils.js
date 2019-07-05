@@ -7,11 +7,10 @@ import LangUtils from 'lang-utils';
 import ObjectUtils from 'object-utils';
 
 export default class StringUtils {
-
     /**
-     * Creates new interpolated String with String template and  params data object.
+     * Creates a new interpolated string with a string template and a data object.
      * @param {String} str           String template to be interpolated.
-     * @param {Object} paramsObj     param data object.
+     * @param {Object} paramsObj     Data object to use in interpolation.
      * @return {String}              Interpolated String.
      *
      * @example
@@ -31,13 +30,17 @@ export default class StringUtils {
             // cleanup number like keys & values
             const keys = Object.keys(params);
             keys.forEach(key => {
-                if (LangUtils.isNumberLike(key)) { // number like keys
+                if (LangUtils.isNumberLike(key)) {
+                    // number like keys
                     delete params[key];
-                } else if (LangUtils.isObjectLike(params[key]) && // filter param value class object
+                } else if (
+                    LangUtils.isObjectLike(params[key]) && // filter param value class object
                     !LangUtils.isArray(params[key]) &&
-                    !LangUtils.isPlainObject(params[key])) {
+                    !LangUtils.isPlainObject(params[key])
+                ) {
                     delete params[key];
-                } else if (LangUtils.isFunction(params[key])) { // filter param value function
+                } else if (LangUtils.isFunction(params[key])) {
+                    // filter param value function
                     delete params[key];
                 } else if (params[key] === undefined) {
                     delete params[key];

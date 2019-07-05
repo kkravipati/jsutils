@@ -5,7 +5,6 @@ import NodeUtils from 'node-utils';
 import NumberUtils from 'number-utils';
 import ObjectUtils from 'object-utils';
 import PromiseUtils from 'promise-utils';
-import RegexpUtils from 'regexp-utils';
 import StringUtils from 'string-utils';
 
 export {
@@ -16,6 +15,5 @@ export {
     NumberUtils,
     ObjectUtils,
     PromiseUtils,
-    RegexpUtils,
     StringUtils
 };

@@ -21,54 +21,56 @@ function getKeysFromProperties(obj) {
 
 export default class ObjectUtils {
     /**
-     * Create Keys array from the plain object.
+     * Create an array of keys from a plain object.
      *
-     * @param {Object} obj      Plain object to Inspect
-     * @return {Array}          Array with all keys of given object.
+     * @param {Object} obj      Plain object
+     * @return {Array}          Array with all keys of the given object.
      */
     static keys(obj) {
-        return (LangUtils.isPlainObject(obj) && LangUtils.isFunction(Object.keys)) ?
-            Object.keys(obj) : getKeysFromProperties(obj);
+        return LangUtils.isPlainObject(obj) && LangUtils.isFunction(Object.keys) ?
+            Object.keys(obj) :
+            getKeysFromProperties(obj);
     }
 
     /**
-     * Create Values array from the plain object.
+     * Create an array of values from a plain object.
      *
-     * @param {Object} obj      Plain object to Inspect
-     * @return {Array}          Array with all values of given object.
+     * @param {Object} obj      Plain object
+     * @return {Array}          Array with all values of the given object.
      */
     static values(obj) {
         return this.keys(obj).map(key => obj[key]);
     }
 
     /**
-     * Verify given key is present in the object or not.
+     * Verify if a given key is present in an object.
      *
-     * @param {Object} obj      Plain object to Inspect.
+     * @param {Object} obj      Plain object.
      * @param {String} key      Key value.
-     * @return {Boolean}        true if key is present otherwise false.
+     * @return {Boolean}        true if key is present, otherwise false.
      */
     static containsKey(obj, key) {
         return LangUtils.isPlainObject(obj) ? obj.hasOwnProperty(key) : false;
     }
 
     /**
-     * Get value from the object for a given key, if key is not present return default value.
-     * @param {Object} obj                  Plain object to Inspect.
-     * @param {String} key                  key value.
-     * @param {*} [defaultValue = null]     Value to be return if key is not present in given Object.
-     * @return {*}                          Value for given key from the Object.
+     * Get a value from an object for a given key, if the key is not present return default value.
+     *
+     * @param {Object} obj                  Plain object.
+     * @param {String} key                  Key value.
+     * @param {*} [defaultValue = null]     Value to be returned if the key is not present in the object.
+     * @return {*}                          Value for the given key from the object, or default value.
      */
     static getValue(obj, key, defaultValue) {
-        return this.containsKey(obj, key) ? obj[key] : (defaultValue === undefined) ? null : defaultValue;
+        return this.containsKey(obj, key) ? obj[key] : defaultValue === undefined ? null : defaultValue;
     }
 
     /**
-     * Verify given array contains all elements as plain objects or not.
+     * Verify if all elements of a given array are plain objects.
      *
-     * @param {Array} objArray                      Array to Inspect.
-     * @param {Boolean} [isRecursive=false]         Verify nested items as well.
-     * @return {Boolean}                            true if objArry is array of Objects, otherwise false.
+     * @param {Array} objArray                      Array to inspect.
+     * @param {Boolean} [isRecursive=false]         Verify nested arrays as well.
+     * @return {Boolean}                            true if array is an array of objects, otherwise false.
      *
      * @example
      *
@@ -84,12 +86,14 @@ export default class ObjectUtils {
             return false;
         }
         for (let i = 0; i < objArray.length; i++) {
-            if (!LangUtils.isPlainObject(objArray[i]) &&
+            if (
+                !LangUtils.isPlainObject(objArray[i]) &&
                 // support for nested levels of arrays
-                (!isRecursive || !this.isPlainObjectArray(objArray[i], isRecursive))) {
+                (!isRecursive || !this.isPlainObjectArray(objArray[i], isRecursive))
+            ) {
                 return false;
             }
-        };
+        }
 
         return true;
     }
@@ -97,13 +101,15 @@ export default class ObjectUtils {
     /**
      * Merge one object into another.
      *
-     * @param {Object} toDict                       Object on merge operation is going to perform.
+     * @param {Object} toDict                       Original object on which merge operation is going to be performed.
      * @param {Object} fromDict                     Object to be merged.
-     * @param {Boolean} [recursive=false]           Recursive merge or not.
-     * @param {Boolean} [notOverride=false]         Overide or not. by default override is true.
-     * @param {Boolean} [ignoreNull=false]          Consider null values & keys or not.
-     *                                              By default null values will be merged.
-     * @param {Boolean} [extendObjectArray=false]   Override / extend arrays.by defult override arrys is on.
+     * @param {Boolean} [recursive=false]           Perform a recursive merge.
+     * @param {Boolean} [notOverride=false]         Overide parameters in original object with parameters from
+     *                                              to-be-merged object. By default override is true.
+     * @param {Boolean} [ignoreNull=false]          Consider keys with null values. By default null values will be
+     *                                              merged.
+     * @param {Boolean} [extendObjectArray=false]   Extend arrays. If true arrays will be extended, if false (default)
+     *                                              arrays will be overridden based on the index.
      *
      * @example
      *
@@ -126,8 +132,7 @@ export default class ObjectUtils {
     static merge(toDict, fromDict, recursive, notOverride, ignoreNull, extendObjectArray) {
         function deepCopyFromDictAttrs(attrName, toDict, fromDict) {
             for (let i = 0; i < toDict[attrName].length; i++) {
-                if (LangUtils.isPlainObject(toDict[attrName][i]) &&
-                        LangUtils.isPlainObject(fromDict[attrName][i])) {
+                if (LangUtils.isPlainObject(toDict[attrName][i]) && LangUtils.isPlainObject(fromDict[attrName][i])) {
                     executeMerge(toDict[attrName][i], fromDict[attrName][i]); // eslint-disable-line no-use-before-define, max-len
                 }
             }
@@ -151,23 +156,37 @@ export default class ObjectUtils {
                     let attrName = fromDictKeys[i];
 
                     // handle recursive nested objects
-                    if (recursive && LangUtils.isPlainObject(toDict[attrName]) && LangUtils.isPlainObject(fromDict[attrName])) { // eslint-disable-line max-len
+                    if (
+                        recursive &&
+                        LangUtils.isPlainObject(toDict[attrName]) &&
+                        LangUtils.isPlainObject(fromDict[attrName])
+                    ) {
+                        // eslint-disable-line max-len
                         executeMerge(toDict[attrName], fromDict[attrName]);
-                    } else if (recursive && ObjectUtils.isPlainObjectArray(toDict[attrName]) &&
-                        ObjectUtils.isPlainObjectArray(fromDict[attrName])) { // handle recusive nested objectArrays
-                        if (extendObjectArray) { // don't override array items
+                    } else if (
+                        recursive &&
+                        ObjectUtils.isPlainObjectArray(toDict[attrName]) &&
+                        ObjectUtils.isPlainObjectArray(fromDict[attrName])
+                    ) {
+                        // handle recusive nested objectArrays
+                        if (extendObjectArray) {
+                            // don't override array items
                             mergeArrays(toDict[attrName], fromDict[attrName]);
                         } else {
                             deepCopyFromDictAttrs(attrName, toDict, fromDict);
                             addAdditionalNestedObjs(attrName, toDict, fromDict);
                         }
-                    } else if (!notOverride || // checking not override property
+                    } else if (
+                        !notOverride || // checking not override property
                         !ObjectUtils.containsKey(toDict, attrName) || // checking property exists or not
-                        (ignoreNull && !toDict[attrName])) { // checking ignoreNull property
+                        (ignoreNull && !toDict[attrName])
+                    ) {
+                        // checking ignoreNull property
                         // if it container object, clone it to detach completely from fromDict
                         if (LangUtils.isObjectLike(fromDict[attrName])) {
                             toDict[attrName] = LangUtils.cloneDeep(fromDict[attrName]);
-                        } else { // other primitives and functions
+                        } else {
+                            // other primitives and functions
                             toDict[attrName] = fromDict[attrName];
                         }
                     }

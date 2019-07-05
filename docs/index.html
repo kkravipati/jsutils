@@ -1,0 +1,3663 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>@modil-io/jsutils 1.0.0 | Documentation</title>
+	<meta name='description' content='jsutils library'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+	<link href='assets/styles.min.css' rel='stylesheet' />
+</head>
+
+<body class='documentation'>
+<div class='px2'>
+	<div class='clearfix md-flex lg-flex flex-stretch mxn2'>
+		<div class='documentation-sidebar relative top-0 bottom-0 right-0 px2 py2 col-3 md-show'>
+			<div class='font-smaller fixed col-3 top-0 bottom-0 left-0 overflow-auto fill-light dark-link'>
+				<div class='px2'>
+					<h3 class='mb0 no-anchor'><code>@modil-io/jsutils</code></h3>
+					<div class='mb1'><code>1.0.0</code></div>
+					<input placeholder='Filter' id='filter-input' class='col12 block input' type='text' />
+					<div id="toc">
+						
+						
+						
+						<a
+								href='#arrayutils'
+								class="regular block toggle-sibling">
+							<code>ArrayUtils</code>
+							<span class='icon'>▾</span>
+						</a>
+						
+						
+						<div class='toggle-target'>
+							
+							
+							<a
+									href='#arrayutilsmerge'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.merge</code>
+							</a>
+							
+							<a
+									href='#arrayutilsremoveat'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.removeAt</code>
+							</a>
+							
+							<a
+									href='#arrayutilsremoveandinsert'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.removeAndInsert</code>
+							</a>
+							
+							<a
+									href='#arrayutilsuniq'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.uniq</code>
+							</a>
+							
+							<a
+									href='#arrayutilsindexof'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.indexOf</code>
+							</a>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+						
+						<a
+								href='#langutils'
+								class="regular block toggle-sibling">
+							<code>LangUtils</code>
+							<span class='icon'>▾</span>
+						</a>
+						
+						
+						<div class='toggle-target'>
+							
+							
+							<a
+									href='#langutilsscriptexecute'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.scriptExecute</code>
+							</a>
+							
+							<a
+									href='#langutilsisarray'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isArray</code>
+							</a>
+							
+							<a
+									href='#langutilsisboolean'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isBoolean</code>
+							</a>
+							
+							<a
+									href='#langutilsisdate'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isDate</code>
+							</a>
+							
+							<a
+									href='#langutilsiselement'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isElement</code>
+							</a>
+							
+							<a
+									href='#langutilsisempty'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isEmpty</code>
+							</a>
+							
+							<a
+									href='#langutilsisfunction'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isFunction</code>
+							</a>
+							
+							<a
+									href='#langutilsisnumber'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isNumber</code>
+							</a>
+							
+							<a
+									href='#langutilsisnumberlike'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isNumberLike</code>
+							</a>
+							
+							<a
+									href='#langutilsisobjectlike'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isObjectLike</code>
+							</a>
+							
+							<a
+									href='#langutilsisplainobject'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isPlainObject</code>
+							</a>
+							
+							<a
+									href='#langutilsisregexp'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isRegExp</code>
+							</a>
+							
+							<a
+									href='#langutilsisstring'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isString</code>
+							</a>
+							
+							<a
+									href='#langutilsisundefined'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isUndefined</code>
+							</a>
+							
+							<a
+									href='#langutilsclone'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.clone</code>
+							</a>
+							
+							<a
+									href='#langutilsclonedeep'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.cloneDeep</code>
+							</a>
+							
+							<a
+									href='#langutilsisequal'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isEqual</code>
+							</a>
+							
+							<a
+									href='#langutilsquery'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.query</code>
+							</a>
+							
+							<a
+									href='#langutilsomitdeep'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.omitDeep</code>
+							</a>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+						
+						<a
+								href='#nodeutils'
+								class="regular block toggle-sibling">
+							<code>NodeUtils</code>
+							<span class='icon'>▾</span>
+						</a>
+						
+						
+						<div class='toggle-target'>
+							
+							
+							<a
+									href='#nodeutilsiswindowavailable'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isWindowAvailable</code>
+							</a>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+						
+						<a
+								href='#numberutils'
+								class="regular block toggle-sibling">
+							<code>NumberUtils</code>
+							<span class='icon'>▾</span>
+						</a>
+						
+						
+						<div class='toggle-target'>
+							
+							
+							<a
+									href='#numberutilsisinteger'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isInteger</code>
+							</a>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+						
+						<a
+								href='#objectutils'
+								class="regular block toggle-sibling">
+							<code>ObjectUtils</code>
+							<span class='icon'>▾</span>
+						</a>
+						
+						
+						<div class='toggle-target'>
+							
+							
+							<a
+									href='#objectutilskeys'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.keys</code>
+							</a>
+							
+							<a
+									href='#objectutilsvalues'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.values</code>
+							</a>
+							
+							<a
+									href='#objectutilscontainskey'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.containsKey</code>
+							</a>
+							
+							<a
+									href='#objectutilsgetvalue'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.getValue</code>
+							</a>
+							
+							<a
+									href='#objectutilsisplainobjectarray'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.isPlainObjectArray</code>
+							</a>
+							
+							<a
+									href='#objectutilsmerge'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.merge</code>
+							</a>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+						
+						<a
+								href='#promiseutils'
+								class="regular block toggle-sibling">
+							<code>PromiseUtils</code>
+							<span class='icon'>▾</span>
+						</a>
+						
+						
+						<div class='toggle-target'>
+							
+							
+							<a
+									href='#promiseutilsgetpromise'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.getPromise</code>
+							</a>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+						
+						
+						<a
+								href='#stringutils'
+								class="regular block toggle-sibling">
+							<code>StringUtils</code>
+							<span class='icon'>▾</span>
+						</a>
+						
+						
+						<div class='toggle-target'>
+							
+							
+							<a
+									href='#stringutilsinterpolate'
+									class='button-indent px1 quiet regular rounded block'>
+								<code>.interpolate</code>
+							</a>
+							
+							
+							
+							
+							
+						</div>
+						
+						
+					</div>
+					<div class='mt1 h6 quiet'>
+						<a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class='sm-col-12 md-col-9 lg-col-9 flex flex-column'>
+			<div class='flex-auto full-width'>
+				
+				
+				<section id='arrayutils'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#arrayutils'>
+			<code>
+				ArrayUtils
+				<span class='gray'>()</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Array Methods</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<h4 class='caps quiet mb2 mt3'>Static Members</h4>
+	<div class="section-indent">
+  
+    <section id='arrayutilsmerge'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#arrayutilsmerge'>
+			<code>
+				merge
+				<span class='gray'>(toArr, fromArr)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Merge an array to the end of another array. The arrays can contain any types</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>toArr</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+				
+			</td>
+			<td class='col-6'>The array to merge into.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>fromArr</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+				
+			</td>
+			<td class='col-6'>The array to be merged.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='arrayutilsremoveat'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#arrayutilsremoveat'>
+			<code>
+				removeAt
+				<span class='gray'>(arr, index)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Remove item from array.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>arr</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+				
+			</td>
+			<td class='col-6'>The array to manipulate.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>index</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
+				
+			</td>
+			<td class='col-6'>The index of the item to be removed, it should be an integer >= 0.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='arrayutilsremoveandinsert'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#arrayutilsremoveandinsert'>
+			<code>
+				removeAndInsert
+				<span class='gray'>(arr, startIndex, endIndex?, insertArr)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Replace (part of) an array with items from another array.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>arr</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+				
+			</td>
+			<td class='col-6'>The array to manipulate.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>startIndex</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
+				
+			</td>
+			<td class='col-6'>Start index of the part of the array to be replaced, it should
+be an integer >= 0.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>endIndex</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>?
+				
+			</td>
+			<td class='col-6'>An optional end index of the part of the array to be replaced, To
+remove items, an end index should be >= startIndex value, alternatively
+a new array can be inserted by setting end index to null.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>insertArr</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+				
+				= <code>[]</code>
+			</td>
+			<td class='col-6'>An optional array to add in the place of the removed part. This
+is optional and defaults to an empty array.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='arrayutilsuniq'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#arrayutilsuniq'>
+			<code>
+				uniq
+				<span class='gray'>(arr)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Removes duplicate items from an array (uses Lodash uniq method).
+<strong>Note:</strong> This method does not supports nested arrays.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>arr</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+				
+			</td>
+			<td class='col-6'>The array to manipulate
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>
+	:
+	<span class='force-inline'>New array without duplicates.
+</span>
+	
+	
+	
+
+	
+
+	
+	<h4 class='caps quiet mb1 mt3'>Examples</h4>
+	
+	
+	<pre class='p1 overflow-auto round fill-light'><code>ArrayUtils.uniq([<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]);
+<span class="hljs-comment">// =&gt; [2, 1]</span></code></pre>
+	
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='arrayutilsindexof'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#arrayutilsindexof'>
+			<code>
+				indexOf
+				<span class='gray'>(array, searchElement, fromIndex, isEqualFunc?)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Search for an element in an Array.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>array</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+				
+			</td>
+			<td class='col-6'>The array to be searched.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>searchElement</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>The element to search for.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>fromIndex</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
+				
+				= <code>0</code>
+			</td>
+			<td class='col-6'>The index to start searching from. It should be an integer >= 0.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>isEqualFunc</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>?
+				
+			</td>
+			<td class='col-6'>A custom equality function to use for the search.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code>int</code>
+	:
+	<span class='force-inline'>Element search Index. If element is not found, it returns -1.
+</span>
+	
+	
+	
+
+	
+
+	
+	<h4 class='caps quiet mb1 mt3'>Examples</h4>
+	
+	
+	<pre class='p1 overflow-auto round fill-light'><code>ArrayUtils.indexOf([<span class="hljs-string">'a'</span>, <span class="hljs-string">'ab'</span>, <span class="hljs-string">'abc'</span>], <span class="hljs-string">'ab'</span>);
+<span class="hljs-comment">// =&gt; 1</span>
+
+ArrayUtils.indexOf([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-literal">null</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>], <span class="hljs-literal">undefined</span>, <span class="hljs-string">'a'</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>], <span class="hljs-number">0</span>,
+ (a, b) =&gt; ((a === b) || (a &amp;&amp; b &amp;&amp; a.toString() === b.toString())));
+<span class="hljs-comment">// =&gt; 2</span></code></pre>
+	
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+</div>
+
+	
+
+	
+
+	
+
+	
+</section>
+
+				
+				
+				
+				<section id='langutils'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutils'>
+			<code>
+				LangUtils
+				<span class='gray'>()</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Basic JavaScript Language dev utilities</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<h4 class='caps quiet mb2 mt3'>Static Members</h4>
+	<div class="section-indent">
+  
+    <section id='langutilsscriptexecute'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsscriptexecute'>
+			<code>
+				scriptExecute
+				<span class='gray'>(func, defaultValue, args)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Execute javascript function with given arguments. If the execution fails, return a default value.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>func</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+				
+			</td>
+			<td class='col-6'>JavaScript function.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>defaultValue</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>This can be any value.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>args</code></td>
+			<td class='col-3 quiet'>
+				...any
+				
+			</td>
+			<td class='col-6'>The arguments to pass to the function.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code>any</code>
+	:
+	<span class='force-inline'>function output or default value.
+</span>
+	
+	
+	
+
+	
+
+	
+	<h4 class='caps quiet mb1 mt3'>Examples</h4>
+	
+	
+	<pre class='p1 overflow-auto round fill-light'><code><span class="hljs-keyword">let</span> value = <span class="hljs-number">2</span>
+LangUtils.scriptExecute(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x * x, <span class="hljs-number">0</span>, value) <span class="hljs-comment">//=&gt; 4</span></code></pre>
+	
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisarray'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisarray'>
+			<code>
+				isArray
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is an array.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is an array, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisboolean'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisboolean'>
+			<code>
+				isBoolean
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is a boolean.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is a boolean, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisdate'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisdate'>
+			<code>
+				isDate
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is a date.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a></code>
+	:
+	<span class='force-inline'>true if x is a date, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsiselement'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsiselement'>
+			<code>
+				isElement
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is a HTML element.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is a HTML element, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisempty'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisempty'>
+			<code>
+				isEmpty
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is an empty value  (uses Lodash isEmpty method).</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is an empty value, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisfunction'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisfunction'>
+			<code>
+				isFunction
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is a function.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is an function, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisnumber'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisnumber'>
+			<code>
+				isNumber
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is a number.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is an number, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisnumberlike'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisnumberlike'>
+			<code>
+				isNumberLike
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is a number like.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is number like, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisobjectlike'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisobjectlike'>
+			<code>
+				isObjectLike
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is an object like or not.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is object like, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisplainobject'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisplainobject'>
+			<code>
+				isPlainObject
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is a plain object or not.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is a plain object, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisregexp'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisregexp'>
+			<code>
+				isRegExp
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is a regular expression or not.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is a regular expression, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisstring'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisstring'>
+			<code>
+				isString
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is a string or not.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is a string, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisundefined'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisundefined'>
+			<code>
+				isUndefined
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is undefined or not.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is undefined, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsclone'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsclone'>
+			<code>
+				clone
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Create a shallow clone object (uses Lodash clone method).</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code>any</code>
+	:
+	<span class='force-inline'>cloned object.
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsclonedeep'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsclonedeep'>
+			<code>
+				cloneDeep
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Create a deep clone object (uses Lodash cloneDeep method).</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code>any</code>
+	:
+	<span class='force-inline'>deep cloned object.
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsisequal'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsisequal'>
+			<code>
+				isEqual
+				<span class='gray'>(value, other)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Performs a deep comparison between two values to determine if they are
+equivalent (uses Lodash isEqual method).</p>
+<p><strong>Note:</strong> This method supports comparing arrays, array buffers, booleans,
+date objects, error objects, maps, numbers, <code>Object</code> objects, regexes,
+sets, strings, symbols, and typed arrays. <code>Object</code> objects are compared
+by their own, not inherited, enumerable properties. Functions and DOM
+nodes are <strong>not</strong> supported.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>value</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>The value to compare.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>other</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>The other value to compare.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'><code>true</code>
+ if the values are equivalent, else 
+<code>false</code>
+.
+</span>
+	
+	
+	
+
+	
+
+	
+	<h4 class='caps quiet mb1 mt3'>Examples</h4>
+	
+	
+	<pre class='p1 overflow-auto round fill-light'><code><span class="hljs-keyword">var</span> object = { <span class="hljs-string">'user'</span>: <span class="hljs-string">'fred'</span> };
+<span class="hljs-keyword">var</span> other = { <span class="hljs-string">'user'</span>: <span class="hljs-string">'fred'</span> };
+
+LangUtils.isEqual(object, other);
+<span class="hljs-comment">// =&gt; true</span>
+
+object === other;
+<span class="hljs-comment">// =&gt; false</span></code></pre>
+	
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsquery'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsquery'>
+			<code>
+				query
+				<span class='gray'>(json, path)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Get value from JSON object at given path.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>json</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				
+			</td>
+			<td class='col-6'>json object
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>path</code></td>
+			<td class='col-3 quiet'>
+				(string\ | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)
+				
+			</td>
+			<td class='col-6'>Dot/bracket-notation string path or array.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code>any</code>
+	:
+	<span class='force-inline'>value at given path
+</span>
+	
+	
+	
+
+	
+
+	
+	<h4 class='caps quiet mb1 mt3'>Examples</h4>
+	
+	
+	<pre class='p1 overflow-auto round fill-light'><code>LangUtils.query({<span class="hljs-string">'a'</span>: [<span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]}, <span class="hljs-string">'a[1]'</span>);
+<span class="hljs-comment">//=&gt; 'c'</span>
+
+LangUtils.query({<span class="hljs-string">'a'</span>: [<span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]}, [<span class="hljs-string">'a'</span>, <span class="hljs-number">1</span>])
+<span class="hljs-comment">//=&gt; 'c'</span></code></pre>
+	
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='langutilsomitdeep'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#langutilsomitdeep'>
+			<code>
+				omitDeep
+				<span class='gray'>(object, props)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>filter out given keys from objects given value is an boolean or not.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>object</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				
+			</td>
+			<td class='col-6'>input object.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>props</code></td>
+			<td class='col-3 quiet'>
+				...any
+				
+			</td>
+			<td class='col-6'>repeatable keys to be omitted from given objec
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
+	:
+	<span class='force-inline'>keys omitted object.
+</span>
+	
+	
+	
+
+	
+
+	
+	<h4 class='caps quiet mb1 mt3'>Examples</h4>
+	
+	
+	<pre class='p1 overflow-auto round fill-light'><code>LangUtils.omitDeep({<span class="hljs-attr">a</span>: <span class="hljs-string">"a"</span>, <span class="hljs-attr">b</span>: <span class="hljs-string">"b"</span>, <span class="hljs-attr">c</span>: {<span class="hljs-attr">b</span>: <span class="hljs-string">"b"</span>, <span class="hljs-attr">d</span>: {<span class="hljs-attr">b</span>: <span class="hljs-string">"b"</span>, <span class="hljs-attr">f</span>: <span class="hljs-string">"f"</span>}}}, <span class="hljs-string">"b"</span>);
+<span class="hljs-comment">//=&gt; {a: "a", c: {d: {f: "f"}}}</span></code></pre>
+	
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+</div>
+
+	
+
+	
+
+	
+
+	
+</section>
+
+				
+				
+				
+				<section id='nodeutils'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#nodeutils'>
+			<code>
+				NodeUtils
+				<span class='gray'>()</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Node env related dev utilities</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<h4 class='caps quiet mb2 mt3'>Static Members</h4>
+	<div class="section-indent">
+  
+    <section id='nodeutilsiswindowavailable'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#nodeutilsiswindowavailable'>
+			<code>
+				isWindowAvailable
+				<span class='gray'>()</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a window object is available.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if a window object is available, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+</div>
+
+	
+
+	
+
+	
+
+	
+</section>
+
+				
+				
+				
+				<section id='numberutils'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#numberutils'>
+			<code>
+				NumberUtils
+				<span class='gray'>()</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Array related dev utilities</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<h4 class='caps quiet mb2 mt3'>Static Members</h4>
+	<div class="section-indent">
+  
+    <section id='numberutilsisinteger'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#numberutilsisinteger'>
+			<code>
+				isInteger
+				<span class='gray'>(x)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given value is an integer.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>x</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Accepts any value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if x is an integer, otherwise false
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+</div>
+
+	
+
+	
+
+	
+
+	
+</section>
+
+				
+				
+				
+				<section id='objectutils'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#objectutils'>
+			<code>
+				ObjectUtils
+				<span class='gray'>()</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Object related dev utilities</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<h4 class='caps quiet mb2 mt3'>Static Members</h4>
+	<div class="section-indent">
+  
+    <section id='objectutilskeys'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#objectutilskeys'>
+			<code>
+				keys
+				<span class='gray'>(obj)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Create an array of keys from a plain object.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>obj</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				
+			</td>
+			<td class='col-6'>Plain object
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>
+	:
+	<span class='force-inline'>Array with all keys of the given object.
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='objectutilsvalues'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#objectutilsvalues'>
+			<code>
+				values
+				<span class='gray'>(obj)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Create an array of values from a plain object.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>obj</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				
+			</td>
+			<td class='col-6'>Plain object
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>
+	:
+	<span class='force-inline'>Array with all values of the given object.
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='objectutilscontainskey'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#objectutilscontainskey'>
+			<code>
+				containsKey
+				<span class='gray'>(obj, key)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given key is present in an object.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>obj</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				
+			</td>
+			<td class='col-6'>Plain object.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>key</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+				
+			</td>
+			<td class='col-6'>Key value.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if key is present, otherwise false.
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='objectutilsgetvalue'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#objectutilsgetvalue'>
+			<code>
+				getValue
+				<span class='gray'>(obj, key, defaultValue)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Get a value from an object for a given key, if the key is not present return default value.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>obj</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				
+			</td>
+			<td class='col-6'>Plain object.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>key</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+				
+			</td>
+			<td class='col-6'>Key value.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>defaultValue</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+				= <code>null</code>
+			</td>
+			<td class='col-6'>Value to be returned if the key is not present in the object.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code>any</code>
+	:
+	<span class='force-inline'>Value for the given key from the object, or default value.
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='objectutilsisplainobjectarray'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#objectutilsisplainobjectarray'>
+			<code>
+				isPlainObjectArray
+				<span class='gray'>(objArray, isRecursive)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Verify if a given array contains all elements as plain objects or not.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>objArray</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+				
+			</td>
+			<td class='col-6'>Array to Inspect.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>isRecursive</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+				
+				= <code>false</code>
+			</td>
+			<td class='col-6'>Verify nested items as well.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+	:
+	<span class='force-inline'>true if objArry is array of Objects, otherwise false.
+</span>
+	
+	
+	
+
+	
+
+	
+	<h4 class='caps quiet mb1 mt3'>Examples</h4>
+	
+	
+	<pre class='p1 overflow-auto round fill-light'><code>ObjectUtils.isPlainObjectArray([{<span class="hljs-attr">h</span>: <span class="hljs-string">'h'</span>}, [{<span class="hljs-attr">k</span>: <span class="hljs-string">'k'</span>}]]);
+<span class="hljs-comment">// =&gt; false</span>
+
+ObjectUtils.isPlainObjectArray([{<span class="hljs-attr">h</span>: <span class="hljs-string">'h'</span>}, [{<span class="hljs-attr">k</span>: <span class="hljs-string">'k'</span>}]], <span class="hljs-literal">true</span>);
+<span class="hljs-comment">// =&gt; true</span></code></pre>
+	
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+    <section id='objectutilsmerge'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#objectutilsmerge'>
+			<code>
+				merge
+				<span class='gray'>(toDict, fromDict, recursive, notOverride, ignoreNull, extendObjectArray)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Merge one object into another.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>toDict</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				
+			</td>
+			<td class='col-6'>Object on merge operation is going to perform.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>fromDict</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				
+			</td>
+			<td class='col-6'>Object to be merged.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>recursive</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+				
+				= <code>false</code>
+			</td>
+			<td class='col-6'>Recursive merge or not.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>notOverride</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+				
+				= <code>false</code>
+			</td>
+			<td class='col-6'>Overide or not. by default override is true.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>ignoreNull</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+				
+				= <code>false</code>
+			</td>
+			<td class='col-6'>Consider null values &#x26; keys or not.
+By default null values will be merged.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>extendObjectArray</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+				
+				= <code>false</code>
+			</td>
+			<td class='col-6'>Override / extend arrays.by defult override arrys is on.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+
+	
+
+	
+	<h4 class='caps quiet mb1 mt3'>Examples</h4>
+	
+	
+	<pre class='p1 overflow-auto round fill-light'><code><span class="hljs-keyword">let</span> toDict = {<span class="hljs-attr">a</span>: <span class="hljs-string">'1'</span>, <span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-string">'1'</span>, <span class="hljs-attr">e</span>: <span class="hljs-literal">null</span>}, <span class="hljs-attr">f</span>: [{<span class="hljs-attr">g</span>: <span class="hljs-string">'1'</span>}] };
+<span class="hljs-keyword">let</span> fromDict = {<span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-string">'2'</span>, <span class="hljs-attr">d</span>: <span class="hljs-string">'2'</span>, <span class="hljs-attr">e</span>: <span class="hljs-string">'2'</span>}, <span class="hljs-attr">f</span>: [{<span class="hljs-attr">g</span>: <span class="hljs-string">'2'</span>}] };
+ObjectUtils.merge(toDict, fromDict);
+<span class="hljs-comment">// =&gt; toDict is updated as {a: '1', b: {c: '2', d: '2', e: '2'}, f: [{g: '2'}]}</span>
+
+<span class="hljs-keyword">let</span> toDict = {<span class="hljs-attr">a</span>: <span class="hljs-string">'1'</span>, <span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-string">'1'</span>, <span class="hljs-attr">e</span>: <span class="hljs-literal">null</span>}, <span class="hljs-attr">f</span>: [{<span class="hljs-attr">g</span>: <span class="hljs-string">'1'</span>}] };
+<span class="hljs-keyword">let</span> fromDict = {<span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-string">'2'</span>, <span class="hljs-attr">d</span>: <span class="hljs-string">'2'</span>, <span class="hljs-attr">e</span>: <span class="hljs-string">'2'</span>}, <span class="hljs-attr">f</span>: [{<span class="hljs-attr">g</span>: <span class="hljs-string">'2'</span>}] };
+ObjectUtils.merge(toDict, fromDict, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>);
+<span class="hljs-comment">// =&gt; toDict is updated as {a: '1', b: {c: '1', d: '2', e: '2'}, f: [{g: '1'}, {g: '2'}]}</span>
+
+<span class="hljs-keyword">let</span> toDict = {<span class="hljs-attr">a</span>: <span class="hljs-string">'1'</span>, <span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-string">'1'</span>, <span class="hljs-attr">e</span>: <span class="hljs-literal">null</span>}, <span class="hljs-attr">f</span>: [{<span class="hljs-attr">g</span>: <span class="hljs-string">'1'</span>}] };
+<span class="hljs-keyword">let</span> fromDict = {<span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-string">'2'</span>, <span class="hljs-attr">d</span>: <span class="hljs-string">'2'</span>, <span class="hljs-attr">e</span>: <span class="hljs-string">'2'</span>}, <span class="hljs-attr">f</span>: [{<span class="hljs-attr">g</span>: <span class="hljs-string">'2'</span>}] };
+ObjectUtils.merge(toDict, fromDict, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>);
+<span class="hljs-comment">// =&gt; toDict is updated as {a: '1', b: {c: '1', d: '2', e: null}, f: [{g: '1'}, {g: '2'}]}</span></code></pre>
+	
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+</div>
+
+	
+
+	
+
+	
+
+	
+</section>
+
+				
+				
+				
+				<section id='promiseutils'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#promiseutils'>
+			<code>
+				PromiseUtils
+				<span class='gray'>()</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Promise related dev utilities</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<h4 class='caps quiet mb2 mt3'>Static Members</h4>
+	<div class="section-indent">
+  
+    <section id='promiseutilsgetpromise'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#promiseutilsgetpromise'>
+			<code>
+				getPromise
+				<span class='gray'>(data)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Create new promise with given data</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>data</code></td>
+			<td class='col-3 quiet'>
+				any
+				
+			</td>
+			<td class='col-6'>Promise result data.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code>
+	:
+	<span class='force-inline'>Dumy promise with given data.
+</span>
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+</div>
+
+	
+
+	
+
+	
+
+	
+</section>
+
+				
+				
+				
+				<section id='stringutils'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#stringutils'>
+			<code>
+				StringUtils
+				<span class='gray'>()</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>String related dev utilities</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<h4 class='caps quiet mb2 mt3'>Static Members</h4>
+	<div class="section-indent">
+  
+    <section id='stringutilsinterpolate'class='mt2 mb2 px3 py1 keyline-top'>
+
+	<div class='right py2'>
+		
+		
+	</div>
+
+	<h3 class='regular'>
+		<a class='black' href='#stringutilsinterpolate'>
+			<code>
+				interpolate
+				<span class='gray'>(str, paramsObj)</span>
+			</code>
+		</a>
+	</h3>
+
+	<p>Creates new interpolated String with String template and  params data object.</p>
+
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	<table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+		<thead class='fill-light'>
+		<th class='col-3 small caps quiet'>parameter</th>
+		<th class='col-3 small caps quiet'>type</th>
+		<th class='col-6 small caps quiet'>description</th>
+		</thead>
+		
+		<tr>
+			<td class='col-3 strong'><code>str</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+				
+			</td>
+			<td class='col-6'>String template to be interpolated.
+</td>
+		</tr>
+		
+		
+		<tr>
+			<td class='col-3 strong'><code>paramsObj</code></td>
+			<td class='col-3 quiet'>
+				<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				
+			</td>
+			<td class='col-6'>param data object.
+</td>
+		</tr>
+		
+		
+	</table>
+	
+
+	
+
+	
+	
+	<h4 class='caps quiet mb1 mt3'>Returns</h4>
+	<code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
+	:
+	<span class='force-inline'>Interpolated String.
+</span>
+	
+	
+	
+
+	
+
+	
+	<h4 class='caps quiet mb1 mt3'>Examples</h4>
+	
+	
+	<pre class='p1 overflow-auto round fill-light'><code>StringUtils.interpolate(<span class="hljs-string">'${a} ${b}'</span>, {<span class="hljs-attr">a</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">3</span>});
+<span class="hljs-comment">// =&gt; '5 3'</span></code></pre>
+	
+	
+
+	
+
+	
+
+	
+
+	
+</section>
+
+  
+</div>
+
+	
+
+	
+
+	
+
+	
+</section>
+
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+<script src='assets/scripts.min.js'></script>
+</body>
+</html>

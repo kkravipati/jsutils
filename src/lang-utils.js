@@ -15,18 +15,18 @@ function checkType(x, type) {
 }
 
 export default class LangUtils {
-
     /**
-     * Execute javascript function with given arguments. if execution fails, return default value.
-	 *
+     * Execute javascript function with given arguments. If the execution fails, return a default value.
+     *
+     * @param  {Function} func          JavaScript function.
+     * @param  {*} defaultValue         This can be any value.
+     * @param  {...*} args              The arguments to pass to the function.
+     *
+     * @return {*}                      function output or default value.
+     *
      * @example
      * let value = 2
      * LangUtils.scriptExecute(x => x * x, 0, value) //=> 4
-     *
-     * @param  {Function} func          JavaScript function
-     * @param  {*} defaultValue         This can be any value.
-     * @param  {...*} args              desired arguments to given function.
-     * @return {*}                      function output or default value.
      *
      */
     static scriptExecute(func, defaultValue, ...args) {
@@ -39,16 +39,16 @@ export default class LangUtils {
     }
 
     /**
-     * Verify given value is an array or not.
+     * Verify if a given value is an array.
      * @param  {*} x                Accepts any value.
-     * @return {Boolean}            true if x is an array , otherwise false
+     * @return {Boolean}            true if x is an array, otherwise false
      */
     static isArray(x) {
         return this.isObjectLike(x) && x instanceof Array;
     }
 
     /**
-     * Verify given value is an boolean or not.
+     * Verify if a given value is a boolean.
      * @param  {*} x                Accepts any value.
      * @return {Boolean}            true if x is a boolean, otherwise false
      */
@@ -57,7 +57,7 @@ export default class LangUtils {
     }
 
     /**
-     * Verify given value is an date or not.
+     * Verify if a given value is a date.
      * @param  {*} x             Accepts any value.
      * @return {Date}            true if x is a date, otherwise false
      */
@@ -66,17 +66,25 @@ export default class LangUtils {
     }
 
     /**
-     * Verify given value is an  HTML element or not.
+     * Verify if a given value is a HTML element.
      * @param  {*} x                Accepts any value.
-     * @return {Boolean}            true if x is HTML element, otherwise false
+     * @return {Boolean}            true if x is a HTML element, otherwise false
      */
     static isElement(x) {
-        return this.isObjectLike(x) &&
-        this.scriptExecute(function (x) {return x instanceof HTMLElement;}, false, x);
+        return (
+            this.isObjectLike(x) &&
+            this.scriptExecute(
+                function (x) {
+                    return x instanceof HTMLElement;
+                },
+                false,
+                x
+            )
+        );
     }
 
     /**
-     * Verify given value is any empty value or not.
+     * Verify if a given value is an empty value  (uses Lodash isEmpty method).
      * @param  {*} x                Accepts any value.
      * @return {Boolean}            true if x is an empty value, otherwise false
      */
@@ -85,7 +93,7 @@ export default class LangUtils {
     }
 
     /**
-     * Verify given value is an function or not.
+     * Verify if a given value is a function.
      * @param  {*} x                Accepts any value.
      * @return {Boolean}            true if x is an function, otherwise false
      */
@@ -94,25 +102,25 @@ export default class LangUtils {
     }
 
     /**
-     * Verify given value is a number or not.
+     * Verify if a given value is a number.
      * @param  {*} x                Accepts any value.
-     * @return {Boolean}            true if x is an number , otherwise false
+     * @return {Boolean}            true if x is an number, otherwise false
      */
     static isNumber(x) {
         return checkType(x, 'number');
     }
 
     /**
-     * Verify given value is a  number like or not.
+     * Verify if a given value is a number like.
      * @param  {*} x                Accepts any value.
-     * @return {Boolean}            true if x is number like value , otherwise false
+     * @return {Boolean}            true if x is number like, otherwise false
      */
     static isNumberLike(x) {
         return x !== null && !isNaN(x);
     }
 
     /**
-     * Verify given value is object like or not.
+     * Verify if a given value is an object like or not.
      * @param  {*} x                Accepts any value.
      * @return {Boolean}            true if x is object like, otherwise false
      */
@@ -121,7 +129,7 @@ export default class LangUtils {
     }
 
     /**
-     * Verify given value is plain object or not.
+     * Verify if a given value is a plain object or not.
      * @param  {*} x                Accepts any value.
      * @return {Boolean}            true if x is a plain object, otherwise false
      */
@@ -130,7 +138,7 @@ export default class LangUtils {
     }
 
     /**
-     * Verify given value is regular expression or not.
+     * Verify if a given value is a regular expression or not.
      * @param  {*} x                Accepts any value.
      * @return {Boolean}            true if x is a regular expression, otherwise false
      */
@@ -139,7 +147,7 @@ export default class LangUtils {
     }
 
     /**
-     * Verify given value is a string or not.
+     * Verify if a given value is a string or not.
      * @param  {*} x                Accepts any value.
      * @return {Boolean}            true if x is a string, otherwise false
      */
@@ -148,27 +156,27 @@ export default class LangUtils {
     }
 
     /**
-     * Verify given value is undefined or not.
+     * Verify if a given value is undefined or not.
      * @param  {*} x                Accepts any value.
-     * @return {Boolean}            true if x is undefined , otherwise false
+     * @return {Boolean}            true if x is undefined, otherwise false
      */
     static isUndefined(x) {
         return checkType(x, 'undefined');
     }
 
     /**
-     * Create clone object.
+     * Create a shallow clone object (uses Lodash clone method).
      * @param  {*} x                Accepts any value.
-     * @return {*}                  clone object.
+     * @return {*}                  cloned object.
      */
     static clone(x) {
         return _clone(x);
     }
 
     /**
-     * Create deep clone object.
+     * Create a deep clone object (uses Lodash cloneDeep method).
      * @param  {*} x                Accepts any value.
-     * @return {*}                  deep clone object.
+     * @return {*}                  deep cloned object.
      */
     static cloneDeep(x) {
         return _cloneDeep(x);
@@ -176,7 +184,7 @@ export default class LangUtils {
 
     /**
      * Performs a deep comparison between two values to determine if they are
-     * equivalent.
+     * equivalent (uses Lodash isEqual method).
      *
      * **Note:** This method supports comparing arrays, array buffers, booleans,
      * date objects, error objects, maps, numbers, `Object` objects, regexes,
@@ -193,7 +201,7 @@ export default class LangUtils {
      * var object = { 'user': 'fred' };
      * var other = { 'user': 'fred' };
      *
-     * _.isEqual(object, other);
+     * LangUtils.isEqual(object, other);
      * // => true
      *
      * object === other;
@@ -204,9 +212,9 @@ export default class LangUtils {
     }
 
     /**
-     * Get value from JSON object at given path.
+     * Get a value from a JSON object at a given path.
      *
-     * @param {Object} json                 json object
+     * @param {Object} json                 JSON object
      * @param {(string\|string[])} path     Dot/bracket-notation string path or array.
      * @return {*}                          value at given path
      * @example
@@ -218,18 +226,17 @@ export default class LangUtils {
      * //=> 'c'
      */
     static query(json, path) {
-        if ((this.isArray(json) || this.isPlainObject(json)) &&
-            (this.isArray(path) || this.isString(path))) {
+        if ((this.isArray(json) || this.isPlainObject(json)) && (this.isArray(path) || this.isString(path))) {
             return selectn(path, json);
         }
         return null;
     }
 
     /**
-     * filter out given keys from objects given value is an boolean or not.
-     * @param {Object} object      input object.
-     * @param  {...any} props      repeatable keys to be omitted from given objec
-     * @return {Object}            keys omitted object.
+     * Filter out keys from an object.
+     * @param {Object} object      The input object.
+     * @param  {...any} props      Keys to be omitted from the given object
+     * @return {Object}            object with keys omitted.
      * @example
      *
      * LangUtils.omitDeep({a: "a", b: "b", c: {b: "b", d: {b: "b", f: "f"}}}, "b");

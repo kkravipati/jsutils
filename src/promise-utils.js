@@ -4,9 +4,8 @@
  */
 
 export default class PromiseUtils {
-
     /**
-     * Create new promise with given data
+     * Create a new promise with given data
      *
      * @param {*} data          Promise result data.
      * @return {Promise}        Dumy promise with given data.

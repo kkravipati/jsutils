@@ -1,5 +1,5 @@
 /**
- * Array related dev utilities
+ * Array Methods
  * @module ArrayUtils
  */
 
@@ -8,10 +8,10 @@ import _uniq from 'lodash.uniq';
 
 export default class ArrayUtils {
     /**
-     * Merge fromArr array to end of toArr.
+     * Merge an array to the end of another array. The arrays can contain any types
      *
-     * @param {Array} toArr     The Array of any type to Merge.
-     * @param {Array} fromArr   The Array of any type to be merged.
+     * @param {Array} toArr     The array to merge into.
+     * @param {Array} fromArr   The array to be merged.
      */
     static merge(toArr, fromArr) {
         if (LangUtils.isArray(toArr)) {
@@ -20,10 +20,10 @@ export default class ArrayUtils {
     }
 
     /**
-     * Remove item from Array.
+     * Remove item from array.
      *
-     * @param {Array} arr       The Array of any type to Inspect.
-     * @param {Number} index    Array Index, it should be a 0 or +ve integer.
+     * @param {Array} arr       The array to manipulate.
+     * @param {Number} index    The index of the item to be removed, it should be an integer >= 0.
      */
     static removeAt(arr, index) {
         index = Number(index);
@@ -33,18 +33,22 @@ export default class ArrayUtils {
     }
 
     /**
-     * Update a part of an array with new some another array items.
+     * Replace (part of) an array with items from another array.
      *
-     * @param {Array} arr               The Array of any type to Inspect.
-     * @param {Number} startIndex       Part Start index, it should be a 0 or +ve integer.
-     * @param {Number} endIndex         Part End index, it should be >= startIndex value.
-     * @param {Array} insertArr         Another array with items.
+     * @param {Array} arr               The array to manipulate.
+     * @param {Number} startIndex       Start index of the part of the array to be replaced, it should
+     *                                  be an integer >= 0.
+     * @param {Number} [endIndex]       An optional end index of the part of the array to be replaced, To
+     *                                  remove items, an end index should be >= startIndex value, alternatively
+     *                                  a new array can be inserted by setting end index to null.
+     * @param {Array} [insertArr=[]]    An optional array to add in the place of the removed part. This
+     *                                  is optional and defaults to an empty array.
      */
     static removeAndInsert(arr, startIndex, endIndex, insertArr) {
         startIndex = Number(startIndex);
         endIndex = Number(endIndex);
 
-        let numItems = (endIndex > startIndex) ? endIndex - startIndex : 0;
+        const numItems = endIndex >= startIndex ? endIndex - startIndex + 1 : 0;
 
         if (!LangUtils.isArray(insertArr)) {
             insertArr = [];
@@ -55,11 +59,11 @@ export default class ArrayUtils {
     }
 
     /**
-     * Creates a duplicate free version of an Array.
+     * Removes duplicate items from an array (uses Lodash uniq method).
      * **Note:** This method does not supports nested arrays.
      *
-     * @param {Array} arr       The Array of any type to Inspect
-     * @return {Array}          New duplicate free array.
+     * @param {Array} arr       The array to manipulate
+     * @return {Array}          New array without duplicates.
      *
      * @example
      *
@@ -71,12 +75,13 @@ export default class ArrayUtils {
     }
 
     /**
-     * An element search in an Array.
+     * Search for an element in an Array.
      *
-     * @param {Array} array                 The Array of any type to Inspect
-     * @param {*} searchElement             Element to be searched.
-     * @param {Number} [fromIndex=0]        Search start index. It should be a 0 or +ve integer.
-     * @param {Function} [isEqualFunc]      Custom Equality function.
+     * @param {Array} array                 The array to be searched.
+     * @param {*} searchElement             The element to search for.
+     * @param {Number} [fromIndex=0]        The index to start searching from. It should be an integer >= 0.
+     * @param {Function} [isEqualFunc]      A custom equality function to use for the search.
+     *
      * @return {int}                        Element search Index. If element is not found, it returns -1.
      *
      * @example
@@ -86,7 +91,7 @@ export default class ArrayUtils {
      *
      * ArrayUtils.indexOf([[1, 2], null, [1, 3], undefined, 'a'], [1, 3], 0,
      *  (a, b) => ((a === b) || (a && b && a.toString() === b.toString())));
-     * // => [2, 1]
+     * // => 2
      *
      */
     static indexOf(array, searchElement, fromIndex, isEqualFunc) {

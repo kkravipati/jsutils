@@ -5,11 +5,14 @@
 import LangUtils from 'lang-utils';
 
 export default class NodeUtils {
-
     /**
-     * Verify window object is available or not.
+     * Verify if a window object is available.
+     *
+     * @return {Boolean}   true if a window object is available, otherwise false
      */
     static isWindowAvailable() {
-        return LangUtils.scriptExecute(function () {return Boolean(window);}, false);
+        return LangUtils.scriptExecute(function () {
+            return Boolean(window);
+        }, false);
     }
 }
