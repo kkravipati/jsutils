@@ -1,8 +1,9 @@
 {
   "name": "@modil-io/jsutils",
   "version": "1.0.0",
-  "description": "jsutils library",
+  "description": "JavaScript utilities library",
   "main": "dist/@modil-io/jsutils.js",
+  "unpkg": "dist/@modil-io/jsutils.min.js",
   "private": true,
   "publishConfig": {
     "access": "restricted"
