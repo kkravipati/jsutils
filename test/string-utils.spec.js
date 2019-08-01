@@ -9,6 +9,13 @@ describe('StringUtils tests', () => {
             expect(StringUtils.interpolate('${a} ${b}', {a: 5, b: 3}))
                 .to.be.equal('5 3');
         });
+        it('string template with number keys', () => {
+            class Xaas {
+                x() {}
+            };
+            expect(StringUtils.interpolate('${a} ${b}', {'1': 5, a: 5, b: 3, d: new Xaas(), e: x => x + 1, f: undefined}))
+                .to.be.equal('5 3');
+        });
         it('missing params - throw exception', () => {
             expect(function () { // wrapper function to catch exception
                 StringUtils.interpolate('${a} ${b1}', {a: 5, b: 3});

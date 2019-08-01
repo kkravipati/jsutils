@@ -1,8 +1,9 @@
 {
   "name": "@modil-io/jsutils",
   "version": "1.0.0",
-  "description": "jsutils library",
+  "description": "JavaScript utilities library",
   "main": "dist/@modil-io/jsutils.js",
+  "unpkg": "dist/@modil-io/jsutils.min.js",
   "private": true,
   "publishConfig": {
     "access": "restricted"
@@ -13,7 +14,7 @@
     "test": "mocha --require babel-register --colors ./test/*.spec.js",
     "test:watch": "mocha --require babel-register --colors -w ./test/*.spec.js",
     "test:cover": "cross-env NODE_ENV=test nyc mocha --require babel-register --colors test/*.js",
-    "docs:build": "documentation build src/** -f html -o docs"
+    "docs:build": "documentation build -f html -o docs --theme node_modules/documentation-theme-light src/**"
   },
   "keywords": [
     "javascript",
@@ -52,6 +53,7 @@
     "chai-as-promised": "^7.1.1",
     "cross-env": "^5.2.0",
     "documentation": "^11.0.1",
+    "documentation-theme-light": "^1.1.0",
     "es6-promise": "^4.2.5",
     "eslint": "^5.0.1",
     "eslint-loader": "^2.0.0",
@@ -62,6 +64,7 @@
     "jsdom-global": "3.0.2",
     "mocha": "^4.0.1",
     "nyc": "^13.1.0",
+    "prettier-eslint": "^9.0.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.12.2",
     "webpack-cli": "^3.0.8",
